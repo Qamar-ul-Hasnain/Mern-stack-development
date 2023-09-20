@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    
+    <form id="bmiForm">
+        <label for="weight">Enter your Weight in Kg:</label>
+        <input type="text" id="weight" placeholder="Enter your weight in Kg" required>
+        
+        <label for="height">Enter your Height in meters:</label>
+        <input type="text" id="height" placeholder="Enter your height in meters" required>
+        
+        <button type="button" id="calculateButton">Calculate BMI</button>
+    </form>
+    
+    <h2>Your BMI is: <span id="bmiResult"></span></h2>
+    <h2 id="bmiCategory"></h2>
+
+    <script>
+        // script.js
+document.addEventListener("DOMContentLoaded", function() {
+    const calculateButton = document.getElementById("calculateButton");
+    const bmiResultElement = document.getElementById("bmiResult");
+    const bmiCategoryElement = document.getElementById("bmiCategory");
+
+    calculateButton.addEventListener("click", function() {
+        const weightInput = document.getElementById("weight");
+        const heightInput = document.getElementById("height");
+
+        const weight = parseFloat(weightInput.value);
+        const height = parseFloat(heightInput.value);
+
+        if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+            alert("Please enter valid weight and height values.");
+            return;
+        }
+
+        const BMI = weight / (height * height);
+        bmiResultElement.textContent = BMI.toFixed(2);
+
+        if (BMI < 18.5) {
+            bmiCategoryElement.textContent = "Underweight";
+        } else if (BMI >= 18.5 && BMI <= 24.9) {
+            bmiCategoryElement.textContent = "Normal Weight";
+        } else if (BMI >= 25 && BMI <= 29.9) {
+            bmiCategoryElement.textContent = "Overweight";
+        } else {
+            bmiCategoryElement.textContent = "Obesity";
+        }
+    });
+});
+
+    </script> 
+    
+
+</body>
+</html>
+ 

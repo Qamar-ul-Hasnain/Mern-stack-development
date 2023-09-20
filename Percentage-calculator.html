@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><h1 id="exam">JAVA SCRRIPT DOM  </h1>
+   
+    <script src="./qamar.js"></script>
+ 
+
+<form onsubmit="perc();return false;">
+<label for="tm">total marks</label>
+<input type="number" name="tm" id="qamar">
+<label for="ob">obtain marks</label>
+<input type="number" name="ob" id="jawad">
+<button type="submit">calc</button>
+<h1 id="exam">
+<h1 id="exam"> </h1>
+</form>
+
+<script>
+
+    
+function perc() {
+let std_Tm_Marks_Of2ndyear=document.querySelector("#qamar").value;
+let om_Marks_Of2ndyear=document.querySelector("#jawad").value;
+ res=(om_Marks_Of2ndyear/std_Tm_Marks_Of2ndyear)*100;
+ 
+ document.querySelector("#exam").innerHTML=(`you have got it marks    ${res}`);
+ 
+
+    
+}
+</script>
+</body>
+</html>
